@@ -13,3 +13,10 @@ const store = createStore(
 );
 
 export { store };
+
+// import { createSlice } from '@reduxjs/toolkit';
+// import { createStore } from 'redux';
+
+// const todoSlice = createSlice({
+//   name: '@@todos',
+// });
