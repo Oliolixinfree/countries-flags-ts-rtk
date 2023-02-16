@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { loadNeighborsByBorder } from '../store/details/details-actions';
+import { loadNeighborsByBorder } from '../../store/details/details-actions';
 import { useEffect } from 'react';
-import { selectNeighbors } from '../store/details/details-selectors';
+import { selectNeighbors } from '../../store/details/details-selectors';
 
 const Wrapper = styled.section`
   margin-top: 3rem;
