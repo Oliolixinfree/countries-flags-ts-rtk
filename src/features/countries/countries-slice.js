@@ -36,7 +36,6 @@ const countrySlice = createSlice({
 
 export const countryReducer = countrySlice.reducer;
 
-// selectors
 export const selectCountriesInfo = (state) => ({
   status: state.countries.status,
   error: state.countries.error,

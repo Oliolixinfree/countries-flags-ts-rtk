@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Info } from './Info';
 import { useDetails } from './use-details';
 

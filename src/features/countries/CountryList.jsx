@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-
 import { List } from '../../components/List';
 import { Card } from '../../components/Card';
 import { useCountries } from './use-countries';

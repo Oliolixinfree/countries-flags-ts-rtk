@@ -2,8 +2,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const loadCountryByName = createAsyncThunk(
   '@@details/load-country-by-name',
-  (name, { extra: { cliet, api } }) => {
-    return cliet.get(api.searchByCountry(name));
+  (name, { extra: { client, api } }) => {
+    return client.get(api.searchByCountry(name));
+  },
+);
+export const loadNeighborsByBorder = createAsyncThunk(
+  '@@details/load-neighbors',
+  (borders, { extra: { client, api } }) => {
+    return client.get(api.filterByCode(borders));
   },
 );
 
@@ -26,13 +32,16 @@ const detailsSlice = createSlice({
         state.status = 'loading';
         state.error = null;
       })
-      .addCase(loadCountryByName.rejected, (state, actions) => {
+      .addCase(loadCountryByName.rejected, (state, action) => {
         state.status = 'rejected';
-        state.error = actions.payload || actions.meta.error;
+        state.error = action.payload || action.meta.error;
       })
-      .addCase(loadCountryByName.fulfilled, (state, actions) => {
-        state.status = 'fulfilled';
-        state.currentCountry = actions.payload.data[0];
+      .addCase(loadCountryByName.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.currentCountry = action.payload.data[0];
+      })
+      .addCase(loadNeighborsByBorder.fulfilled, (state, action) => {
+        state.neighbors = action.payload.data.map((country) => country.name);
       });
   },
 });
