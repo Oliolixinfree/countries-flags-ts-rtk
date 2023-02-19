@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import { useTheme } from './use-theme';
